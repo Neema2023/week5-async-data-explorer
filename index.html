@@ -1,0 +1,142 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore products with search, filters, sorting and details."
+    />
+    <title>Async Product Explorer</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+
+  <body class="min-h-screen bg-slate-50 text-slate-900">
+    <header class="border-b border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5">
+        <a href="/" class="text-xl font-bold tracking-tight">
+          Product<span class="text-blue-600">Explorer</span>
+        </a>
+        <span class="rounded-full bg-blue-50 px-3 py-1 text-sm text-blue-700">
+          Week 5 Project
+        </span>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-7xl px-5 py-10">
+      <section class="mb-8">
+        <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">
+          Discover something useful
+        </p>
+        <h1 class="mb-3 text-3xl font-bold tracking-tight sm:text-4xl">
+          Async Product Explorer
+        </h1>
+        <p class="max-w-2xl leading-7 text-slate-600">
+          Browse products, search by name, filter categories and sort results.
+          All product data comes from a public API.
+        </p>
+      </section>
+
+      <section
+        aria-label="Product statistics"
+        class="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3"
+      >
+        <article class="rounded-xl border border-slate-200 bg-white p-5">
+          <p class="text-sm text-slate-500">Products loaded</p>
+          <p id="total-products" class="mt-2 text-2xl font-bold">—</p>
+        </article>
+
+        <article class="rounded-xl border border-slate-200 bg-white p-5">
+          <p class="text-sm text-slate-500">Products shown</p>
+          <p id="shown-products" class="mt-2 text-2xl font-bold">—</p>
+        </article>
+
+        <article class="rounded-xl border border-slate-200 bg-white p-5">
+          <p class="text-sm text-slate-500">Average price shown</p>
+          <p id="average-price" class="mt-2 text-2xl font-bold">—</p>
+        </article>
+      </section>
+
+      <section
+        aria-label="Search and filter products"
+        class="mb-8 grid grid-cols-1 gap-4 rounded-xl border border-slate-200 bg-white p-5 md:grid-cols-3"
+      >
+        <div>
+          <label for="search" class="mb-2 block text-sm font-medium">
+            Search products
+          </label>
+          <input
+            id="search"
+            type="search"
+            placeholder="e.g. phone, laptop..."
+            class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+          />
+        </div>
+
+        <div>
+          <label for="category-filter" class="mb-2 block text-sm font-medium">
+            Category
+          </label>
+          <select
+            id="category-filter"
+            class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+          >
+            <option value="all">All categories</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="sort-by" class="mb-2 block text-sm font-medium">
+            Sort by
+          </label>
+          <select
+            id="sort-by"
+            class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+          >
+            <option value="default">Default order</option>
+            <option value="price-asc">Price: low to high</option>
+            <option value="price-desc">Price: high to low</option>
+            <option value="name">Name: A–Z</option>
+          </select>
+        </div>
+      </section>
+
+      <section>
+        <div class="mb-5 flex items-center justify-between gap-3">
+          <h2 class="text-xl font-bold">Products</h2>
+          <p id="results-count" class="text-sm text-slate-500" aria-live="polite">
+            Preparing products...
+          </p>
+        </div>
+
+        <div
+          id="status-message"
+          class="mb-5"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+        <div
+          id="product-grid"
+          class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        ></div>
+      </section>
+    </main>
+
+    <dialog
+      id="product-dialog"
+      aria-labelledby="dialog-title"
+      class="m-auto w-[calc(100%-2rem)] max-w-xl rounded-2xl p-0 backdrop:bg-slate-900/50"
+    >
+      <div id="dialog-content" class="p-6"></div>
+    </dialog>
+
+    <footer class="mt-12 border-t border-slate-200 bg-white">
+      <div class="mx-auto max-w-7xl px-5 py-6 text-sm text-slate-500">
+        Async Product Explorer · Built with HTML, Tailwind CSS and JavaScript.
+      </div>
+    </footer>
+  </body>
+</html>
