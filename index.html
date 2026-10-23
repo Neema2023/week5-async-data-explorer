@@ -4,21 +4,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta
       name="description"
       content="Explore products with search, filters, sorting and details."
     />
+
     <title>Async Product Explorer</title>
+
     <link rel="stylesheet" href="/src/style.css" />
     <script type="module" src="/src/main.js"></script>
   </head>
 
   <body class="min-h-screen bg-slate-50 text-slate-900">
+    <!-- Header -->
     <header class="border-b border-slate-200 bg-white">
       <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5">
         <a href="/" class="text-xl font-bold tracking-tight">
           Product<span class="text-blue-600">Explorer</span>
         </a>
+
         <span class="rounded-full bg-blue-50 px-3 py-1 text-sm text-blue-700">
           Week 5 Project
         </span>
@@ -26,22 +31,26 @@
     </header>
 
     <main class="mx-auto max-w-7xl px-5 py-10">
+      <!-- Introduction -->
       <section class="mb-8">
         <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">
           Discover something useful
         </p>
+
         <h1 class="mb-3 text-3xl font-bold tracking-tight sm:text-4xl">
           Async Product Explorer
         </h1>
+
         <p class="max-w-2xl leading-7 text-slate-600">
           Browse products, search by name, filter categories and sort results.
           All product data comes from a public API.
         </p>
       </section>
 
+      <!-- Product statistics -->
       <section
         aria-label="Product statistics"
-        class="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3"
+        class="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
       >
         <article class="rounded-xl border border-slate-200 bg-white p-5">
           <p class="text-sm text-slate-500">Products loaded</p>
@@ -57,8 +66,14 @@
           <p class="text-sm text-slate-500">Average price shown</p>
           <p id="average-price" class="mt-2 text-2xl font-bold">—</p>
         </article>
+
+        <article class="rounded-xl border border-slate-200 bg-white p-5">
+          <p class="text-sm text-slate-500">Total stock</p>
+          <p id="total-stock" class="mt-2 text-2xl font-bold">—</p>
+        </article>
       </section>
 
+      <!-- Search, category filter and sorting -->
       <section
         aria-label="Search and filter products"
         class="mb-8 grid grid-cols-1 gap-4 rounded-xl border border-slate-200 bg-white p-5 md:grid-cols-3"
@@ -67,6 +82,7 @@
           <label for="search" class="mb-2 block text-sm font-medium">
             Search products
           </label>
+
           <input
             id="search"
             type="search"
@@ -79,6 +95,7 @@
           <label for="category-filter" class="mb-2 block text-sm font-medium">
             Category
           </label>
+
           <select
             id="category-filter"
             class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
@@ -91,6 +108,7 @@
           <label for="sort-by" class="mb-2 block text-sm font-medium">
             Sort by
           </label>
+
           <select
             id="sort-by"
             class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
@@ -103,10 +121,16 @@
         </div>
       </section>
 
+      <!-- Products -->
       <section>
         <div class="mb-5 flex items-center justify-between gap-3">
           <h2 class="text-xl font-bold">Products</h2>
-          <p id="results-count" class="text-sm text-slate-500" aria-live="polite">
+
+          <p
+            id="results-count"
+            class="text-sm text-slate-500"
+            aria-live="polite"
+          >
             Preparing products...
           </p>
         </div>
@@ -125,6 +149,7 @@
       </section>
     </main>
 
+    <!-- Product details dialog -->
     <dialog
       id="product-dialog"
       aria-labelledby="dialog-title"
@@ -133,6 +158,7 @@
       <div id="dialog-content" class="p-6"></div>
     </dialog>
 
+    <!-- Footer -->
     <footer class="mt-12 border-t border-slate-200 bg-white">
       <div class="mx-auto max-w-7xl px-5 py-6 text-sm text-slate-500">
         Async Product Explorer · Built with HTML, Tailwind CSS and JavaScript.
