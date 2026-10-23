@@ -1,0 +1,658 @@
+
+@import "tailwindcss";
+
+/* =========================================
+   1. DESIGN SYSTEM
+========================================= */
+
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  color: #172033;
+  background: #f5f7fb;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --primary: #4f46e5;
+  --primary-dark: #3730a3;
+  --primary-light: #eef2ff;
+  --text-main: #172033;
+  --text-muted: #718096;
+  --border: #e6eaf1;
+  --surface: #ffffff;
+  --radius: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 5% 0%, #eef0ff 0, transparent 35%),
+    #f5f7fb;
+  color: var(--text-main);
+  font-family: inherit;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #a5b4fc;
+  outline-offset: 3px;
+}
+
+::selection {
+  background: #c7d2fe;
+  color: #312e81;
+}
+
+/* =========================================
+   2. HEADER
+========================================= */
+
+body > #app-header {
+  display: block;
+}
+
+header {
+  position: relative;
+  z-index: 5;
+  border-bottom: 1px solid rgba(230, 234, 241, 0.9);
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(18px);
+}
+
+header > div {
+  min-height: 76px;
+}
+
+header a {
+  color: var(--text-main);
+  text-decoration: none;
+  letter-spacing: -0.8px;
+}
+
+header a span {
+  color: var(--primary) !important;
+}
+
+header span.rounded-full {
+  border: 1px solid #e0e7ff;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+}
+
+/* =========================================
+   3. MAIN LAYOUT AND HERO
+========================================= */
+
+main {
+  padding-top: 56px !important;
+  padding-bottom: 64px !important;
+}
+
+main > section:first-child {
+  position: relative;
+  margin-bottom: 36px;
+}
+
+main > section:first-child > p:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 13px;
+  border: 1px solid #e0e7ff;
+  border-radius: 999px;
+  background: rgba(238, 242, 255, 0.8);
+  color: var(--primary) !important;
+  font-size: 11px;
+  letter-spacing: 1.3px;
+}
+
+main > section:first-child > p:first-child::before {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6366f1;
+  content: "";
+}
+
+main > section:first-child h1 {
+  max-width: 760px;
+  margin-top: 10px;
+  margin-bottom: 16px;
+  font-size: clamp(34px, 5vw, 54px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -2.4px;
+  color: #151d35;
+}
+
+main > section:first-child > p:last-child {
+  max-width: 610px;
+  color: #69758a !important;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+/* =========================================
+   4. STATISTICS CARDS
+========================================= */
+
+main section[aria-label="Product statistics"] {
+  gap: 18px !important;
+  margin-bottom: 30px !important;
+}
+
+main section[aria-label="Product statistics"] article {
+  position: relative;
+  overflow: hidden;
+  min-height: 142px;
+  padding: 25px !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  box-shadow: 0 4px 18px rgba(28, 39, 76, 0.025);
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease;
+}
+
+main section[aria-label="Product statistics"] article:hover {
+  transform: translateY(-3px);
+  border-color: #d8dcff !important;
+  box-shadow: 0 12px 30px rgba(37, 47, 92, 0.07);
+}
+
+main section[aria-label="Product statistics"] article p:first-child {
+  color: #778197 !important;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+main section[aria-label="Product statistics"] article p:last-child {
+  margin-top: 17px !important;
+  color: #202944;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1.2px;
+}
+
+/* =========================================
+   5. SEARCH AND FILTER PANEL
+========================================= */
+
+main section[aria-label="Search and filter products"] {
+  gap: 20px !important;
+  margin-bottom: 42px !important;
+  padding: 25px !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  box-shadow: 0 5px 22px rgba(28, 39, 76, 0.025);
+}
+
+main section[aria-label="Search and filter products"] label {
+  margin-bottom: 10px !important;
+  color: #35415a;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+main section[aria-label="Search and filter products"] input,
+main section[aria-label="Search and filter products"] select {
+  width: 100%;
+  min-height: 49px;
+  border: 1px solid #dfe4ee !important;
+  border-radius: 12px !important;
+  background-color: #fbfcff !important;
+  color: #202944 !important;
+  font-size: 14px;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+main section[aria-label="Search and filter products"] input::placeholder {
+  color: #9aa4b5;
+}
+
+main section[aria-label="Search and filter products"] input:focus,
+main section[aria-label="Search and filter products"] select:focus {
+  border-color: #818cf8 !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  outline: none;
+}
+
+/* =========================================
+   6. PRODUCT SECTION HEADING
+========================================= */
+
+main section:has(#product-grid) > div:first-child {
+  margin-bottom: 22px !important;
+}
+
+main section:has(#product-grid) > div:first-child h2 {
+  color: #1c2640;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+}
+
+#results-count {
+  color: #7a8498 !important;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* =========================================
+   7. PRODUCT GRID AND CARDS
+========================================= */
+
+#product-grid {
+  align-items: stretch;
+  gap: 24px !important;
+}
+
+#product-grid > article {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e7eaf2 !important;
+  border-radius: 19px !important;
+  background: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(30, 41, 70, 0.035);
+  transition:
+    transform 240ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease;
+}
+
+#product-grid > article:hover {
+  transform: translateY(-6px) !important;
+  border-color: #d8dcff !important;
+  box-shadow: 0 18px 38px rgba(40, 48, 94, 0.1) !important;
+}
+
+#product-grid > article > img,
+#product-grid > article > div:first-child {
+  flex-shrink: 0;
+  height: 225px !important;
+  width: 100%;
+  background: linear-gradient(145deg, #f9faff, #f0f2f9);
+}
+
+#product-grid > article > img {
+  padding: 22px !important;
+  object-fit: contain;
+  transition: transform 300ms ease;
+}
+
+#product-grid > article:hover > img {
+  transform: scale(1.045);
+}
+
+#product-grid > article > div.p-4 {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px !important;
+}
+
+#product-grid > article > div.p-4 > p:first-child {
+  align-self: flex-start;
+  margin-bottom: 13px !important;
+  padding: 6px 10px;
+  border-radius: 7px;
+  background: #eef2ff;
+  color: #4f46e5 !important;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.65px;
+}
+
+#product-grid > article h3 {
+  min-height: 48px;
+  margin-bottom: 9px !important;
+  color: #202944;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.65;
+  letter-spacing: -0.2px;
+}
+
+#product-grid > article .line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+#product-grid > article h3 + p {
+  min-height: 44px;
+  margin-bottom: 19px !important;
+  color: #818ba0 !important;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+#product-grid > article .flex.items-center.justify-between {
+  margin-top: auto;
+  margin-bottom: 18px !important;
+  padding-top: 15px;
+  border-top: 1px solid #f0f2f7;
+}
+
+#product-grid > article .text-lg.font-bold {
+  color: #202944 !important;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+}
+
+#product-grid > article .text-amber-600 {
+  padding: 5px 8px;
+  border-radius: 7px;
+  background: #fffbeb;
+  color: #a16207 !important;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+#product-grid > article button {
+  min-height: 44px;
+  border: 1px solid #4f46e5;
+  border-radius: 10px !important;
+  background: #4f46e5 !important;
+  color: white !important;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.12);
+  transition:
+    background 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+#product-grid > article button:hover {
+  transform: translateY(-1px);
+  background: #3730a3 !important;
+  box-shadow: 0 7px 16px rgba(79, 70, 229, 0.22);
+}
+
+/* =========================================
+   8. LOADING SKELETONS
+========================================= */
+
+#product-grid > article.animate-pulse {
+  animation: skeleton-breathe 1.6s ease-in-out infinite;
+}
+
+#product-grid .animate-pulse > div:first-child {
+  background: linear-gradient(100deg, #eef1f7 30%, #f8f9fc 50%, #eef1f7 70%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s linear infinite;
+}
+
+#product-grid .animate-pulse .bg-slate-200 {
+  background-color: #e9edf5 !important;
+}
+
+@keyframes skeleton-shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes skeleton-breathe {
+  50% {
+    opacity: 0.72;
+  }
+}
+
+/* =========================================
+   9. STATUS, ERROR AND EMPTY STATES
+========================================= */
+
+#status-message {
+  margin-bottom: 20px;
+}
+
+#status-message:empty {
+  display: none;
+}
+
+#status-message > div {
+  border-radius: 15px !important;
+}
+
+#status-message .bg-red-50 {
+  border: 1px solid #fecaca;
+  box-shadow: 0 8px 22px rgba(185, 28, 28, 0.04);
+}
+
+#status-message button {
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 180ms ease;
+}
+
+#product-grid > div.col-span-full {
+  padding: 55px 24px !important;
+  border: 1px dashed #d9deeb !important;
+  border-radius: 18px !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+}
+
+#product-grid > div.col-span-full h3 {
+  color: #27314a;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+#product-grid > div.col-span-full p {
+  margin-top: 9px;
+  color: #818ba0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   10. PRODUCT DETAILS MODAL
+========================================= */
+
+#product-dialog {
+  width: min(560px, calc(100% - 32px));
+  max-width: 560px;
+  max-height: 88vh;
+  overflow-y: auto;
+  border: 1px solid #e6eaf1;
+  border-radius: 22px;
+  background: white;
+  color: #202944;
+  box-shadow: 0 30px 100px rgba(20, 28, 56, 0.25);
+}
+
+#product-dialog::backdrop {
+  background: rgba(18, 24, 44, 0.58);
+  backdrop-filter: blur(5px);
+}
+
+#dialog-content {
+  padding: 30px !important;
+}
+
+#dialog-content h2 {
+  color: #19223b;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.8px;
+}
+
+#dialog-content img {
+  max-height: 250px;
+  border-radius: 15px;
+  background: #f7f8fc;
+}
+
+#dialog-content > p {
+  line-height: 1.85;
+}
+
+#dialog-content > p.text-2xl {
+  color: var(--primary);
+  font-size: 27px;
+  font-weight: 800;
+}
+
+#dialog-content .border-t {
+  border-color: #edf0f5;
+}
+
+#dialog-content strong {
+  color: #34405a;
+}
+
+#dialog-content #close-dialog {
+  flex-shrink: 0;
+  border-radius: 9px;
+  font-size: 23px;
+  transition: background 180ms ease;
+}
+
+#dialog-content #close-dialog:hover {
+  background: #eef0f7;
+}
+
+/* =========================================
+   11. FOOTER
+========================================= */
+
+footer {
+  border-top: 1px solid #e7eaf1 !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+}
+
+footer > div {
+  padding-top: 26px !important;
+  padding-bottom: 26px !important;
+  color: #8a93a6 !important;
+  font-size: 12px;
+}
+
+/* =========================================
+   12. RESPONSIVE DESIGN
+========================================= */
+
+@media (min-width: 1280px) {
+  #product-grid {
+    gap: 25px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  header > div {
+    min-height: 68px;
+    gap: 12px;
+  }
+
+  header a {
+    font-size: 17px;
+  }
+
+  header span.rounded-full {
+    padding: 6px 9px;
+    font-size: 10px;
+  }
+
+  main {
+    padding-top: 35px !important;
+    padding-bottom: 40px !important;
+  }
+
+  main > section:first-child h1 {
+    font-size: 35px;
+    letter-spacing: -1.5px;
+  }
+
+  main > section:first-child > p:last-child {
+    font-size: 14px;
+  }
+
+  main section[aria-label="Product statistics"] article {
+    min-height: 112px;
+    padding: 20px !important;
+  }
+
+  main section[aria-label="Product statistics"] article p:last-child {
+    font-size: 27px;
+  }
+
+  main section[aria-label="Search and filter products"] {
+    padding: 18px !important;
+    gap: 17px !important;
+  }
+
+  #product-grid {
+    gap: 16px !important;
+  }
+
+  #product-grid > article > img,
+  #product-grid > article > div:first-child {
+    height: 190px !important;
+  }
+
+  #product-grid > article > div.p-4 {
+    padding: 15px !important;
+  }
+
+  #product-grid > article .text-lg.font-bold {
+    font-size: 18px;
+  }
+
+  #dialog-content {
+    padding: 22px !important;
+  }
+}
+
+/* Respect reduced-motion accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
