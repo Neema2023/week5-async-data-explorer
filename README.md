@@ -51,4 +51,3 @@ npm run preview
 
 This project uses the [DummyJSON Products API](https://dummyjson.com/docs/products) to retrieve product information and categories.
 
-
