@@ -47,6 +47,20 @@ npm run build
 npm run preview
 ```
 
+## Screenshots
+
+### 1. Loading State
+![Loading State](screenshots/loading.png)
+
+### 2. Success State
+![Success State](screenshots/success.png)
+
+### 3. Empty State
+![Empty State](screenshots/empty.png)
+
+### 4. Error State
+![Error State](screenshots/error.png)
+
 ## API
 
 This project uses the [DummyJSON Products API](https://dummyjson.com/docs/products) to retrieve product information and categories.
